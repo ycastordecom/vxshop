@@ -1,0 +1,52 @@
+/* pages/my/my.wxss */
+page {
+  background-color: #eee;
+}
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  flex-direction: column;
+}
+.avatar image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 200rpx !important;
+}
+.avatar .username {
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.order {
+  height: 250rpx;
+  width: 686rpx;
+  margin: 20rpx auto;
+  background-color: #fff;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.order .orderList {
+  color: #aaa;
+  font-weight: 400;
+  display: flex;
+}
+.order .orderList .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx;
+}
+.order .orderList .item .van-icon {
+  font-size: 50rpx;
+  margin-bottom: 10rpx;
+}
+.order .orderList .item > view {
+  font-size: 25rpx;
+}

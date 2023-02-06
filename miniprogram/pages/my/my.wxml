@@ -1,0 +1,59 @@
+<view class="avatar">
+    <image
+        src="{{user.oppenid?user.avatar:baseImage + (user.avatar?user.avatar:'/image/IMG1615301151266312192.jpeg')  }}"
+        mode="widthFix" />
+    <view class="username">
+        {{user.username}}
+    </view>
+    <view class="username">
+        剩余积分:{{user.integral}}
+    </view>
+</view>
+
+<view class="order">
+    <view>
+        订单
+    </view>
+    <view class="orderList">
+        <view>
+            <navigator class="" target="" url="/pages/order/order?active=0" hover-class="navigator-hover"
+                open-type="navigate">
+                <view class="item">
+                    <van-icon name="pending-payment" info="{{orderNumArr[0]}}" />
+                    <view>待发货</view>
+                </view>
+            </navigator>
+        </view>
+        <view>
+            <navigator class="" target="" url="/pages/order/order?active=2" hover-class="navigator-hover"
+                open-type="navigate">
+                <view class="item">
+                    <van-icon name="pending-payment" info="{{orderNumArr[2]}}" />
+                    <view>已发货</view>
+                </view>
+            </navigator>
+        </view>
+        <view>
+            <navigator class="" target="" url="/pages/order/order?active=1" hover-class="navigator-hover"
+                open-type="navigate">
+                <view class="item">
+                    <van-icon name="pending-payment" info="{{orderNumArr[1]}}" />
+                    <view>已完成</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+<van-cell-group inset>
+    <van-cell title="收货地址" bindtap="toAddress" is-link />
+    <van-cell wx:if="{{!user.phone}}" bindtap="openBindPhone" title="手机号绑定" is-link />
+    <van-cell wx:if="{{!user.oppenid}}" bindtap="bindWxTap" title="微信绑定" is-link bindtap="bindWxTap" />
+</van-cell-group>
+
+
+<!-- 绑定手机号弹窗 -->
+<van-dialog use-slot show="{{show}}" type="tel" focus auto-focus title="绑定手机号" bind:confirm="bindPhoneTap"
+    id="van-dialog">
+    <van-field model:value="{{ phone }}" placeholder="请输入手机号" />
+</van-dialog>

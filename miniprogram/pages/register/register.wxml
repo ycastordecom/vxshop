@@ -1,0 +1,23 @@
+<view>
+  <image src="{{baseImage+'/image/login.png'}}" mode="" />
+</view>
+<view>
+  <van-cell-group border="{{false}}">
+    <view class="label">
+      昵称
+    </view>
+    <van-field model:value="{{ username }}" placeholder="请输入昵称" border="{{false}}" bind:change="onChange" />
+    <view class="label">
+      手机号
+    </view>
+    <van-field model:value="{{ phone }}" placeholder="请输入手机号" border="{{false}}" bind:change="onChange" />
+    <view class="label">
+      密码
+    </view>
+    <van-field model:value="{{ password }}" placeholder="请输入密码" password border="{{false}}" bind:change="onChange" />
+    <view class="forgot-password">
+      <text bindtap="toLogin">点击登录</text>
+    </view>
+    <button bindtap="register">注册</button>
+  </van-cell-group>
+</view>

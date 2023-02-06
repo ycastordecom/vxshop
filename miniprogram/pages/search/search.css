@@ -1,0 +1,36 @@
+/* pages/search/search.wxss */
+.van-grid {
+  border-radius: 10rpx;
+  margin: 0 auto;
+  width: 700rpx;
+  padding-bottom: 176rpx;
+}
+.van-grid .van-grid-item {
+  border-radius: 10rpx;
+  background-color: #fff;
+  overflow: hidden;
+  font-size: 12px;
+}
+.van-grid .van-grid-item .introduction {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 68rpx;
+}
+.van-grid .van-grid-item .price {
+  width: 100%;
+  color: #ff4544;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  padding: 10rpx 0;
+}
+.van-grid .van-grid-item image {
+  width: 100%;
+}
+.van-search {
+  width: 700rpx;
+  margin: 0 auto;
+}

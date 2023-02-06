@@ -1,0 +1,91 @@
+<swiper>
+    <swiper-item wx:for="{{specList}}" wx:key="index">
+        <image class="" src="{{baseImage+item.image}}" mode="widthFix" lazy-load="true" />
+    </swiper-item>
+</swiper>
+<view class="introduction">
+    <view class="price">
+        <view class="price-now">{{goodsData.price}}积分 <text>起</text></view>
+    </view>
+    <view class="title">{{goodsData.goodsName}}</view>
+    <view class="introduce">{{goodsData.introduce}}</view>
+</view>
+<!-- 其他 -->
+<view class="otherbg">
+    <view>
+        其他详情
+    </view>
+    <view class="other" wx:for="{{detailJson}}" wx:key="index">
+        {{item.name}}-{{item.value}}
+    </view>
+</view>
+
+<view class="details">
+    <image wx:for="{{imageList}}" wx:key="index" class="" src="{{baseImage+item}}" mode="widthFix" lazy-load="true"
+        binderror="" bindload="" />
+</view>
+
+<!-- 底部购物车 -->
+<van-goods-action>
+    <van-goods-action-icon bindtap="toCart" icon="cart-o" text="购物车" />
+    <van-goods-action-button bindtap="addCartTap" color="#be99ff" text="加入购物车" type="warning" />
+    <van-goods-action-button bindtap="addOrderTap" color="#7232dd" text="立即购买" />
+</van-goods-action>
+<!-- 购买、购物车 -->
+<van-action-sheet show="{{ show }}" cancel-text="取消" close-on-click-overlay="{{true}}" safe-area-inset-bottom="{{true}}"
+    bind:click-overlay="close">
+    <view class="window-left">
+        <view>
+            <image class="" src="{{baseImage+popImage}}" mode="heightFix" lazy-load="true" binderror="" bindload="" />
+        </view>
+        <view class="window-right">
+            <view>{{goodsData.goodsName}}</view>
+            <view>
+                <view class="price-now">{{goodsData.price+price}} <text>积分</text></view>
+            </view>
+        </view>
+    </view>
+    <!-- 遍历规格 -->
+    <view class="window-spec">
+        <view class="window-spec-list">
+            <view class="window-spec-item" wx:for-index="bindex" wx:for-item="binditem" wx:for="{{specJson}}"
+                wx:key="bindex">
+                <view class="window-spec-item-name">{{binditem.key}}</view>
+                <view class="window-spec-item-value">
+                    <van-button bindtap="selectSpec" data-bindex="{{bindex}}" data-index="{{index}}" round size="mini"
+                        type="{{item.status?'danger':''}}" wx:for="{{binditem.value}}"
+                        wx:key="index">{{item.value}}</van-button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 数量 -->
+    <view class="window-num">
+        <view class="window-num-name">数量</view>
+        <view class="window-num-value">
+            <van-stepper bind:change="numberChange" disabled="{{disabled}}" value="{{number}}" min="1" integer
+                max="{{stock}}" />
+        </view>
+    </view>
+    <!-- 底部按钮 -->
+    <van-submit-bar price="{{ (goodsData.price+price)*number*100 }}" disabled="{{disabled}}" currency="积分"
+        safe-area-inset-bottom button-text="{{text}}" bind:submit="onSubmit" />
+</van-action-sheet>
+<!--  -->
+<van-dialog use-slot id="van-dialog" show="{{addressShow}}" title="选择地址">
+    <van-radio-group model:value="{{active}}">
+        <view class="item" wx:for="{{addressList}}" wx:key="index">
+            <van-radio name="{{item.addressId}}"></van-radio>
+            <view>
+                <view class="item-top">
+                    <text>{{item.receiverName}}</text>
+                    <text>{{item.phone}}</text>
+                </view>
+                <view>
+                    <van-tag type="danger" wx:if="{{item.isDefault}}">默认</van-tag>
+                    <text>{{item.address}}</text>
+                </view>
+            </view>
+        </view>
+    </van-radio-group>
+</van-dialog>

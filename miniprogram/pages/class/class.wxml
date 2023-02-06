@@ -1,0 +1,19 @@
+<view class="bg">
+    <scroll-view scroll-y>
+        <view bindtap="tabClass" data-item="{{item}}" data-index="{{index}}" class="{{index===baseIndex?'active':''}}"
+            wx:for="{{classList}}" wx:key="index">
+            {{item.name}}
+        </view>
+    </scroll-view>
+    <scroll-view scroll-y>
+        <van-grid column-num="2" border="{{ false }}">
+            <van-grid-item bindtap="toShopDetail" data-item="{{item}}" use-slot wx:for="{{ shopList }}" wx:key="index">
+                <image src="{{baseImage+ item.image}}" mode="widthFix" />
+                <view class="introduction">{{item.goodsName}}</view>
+                <view class="price">
+                    {{item.price}}<text>积分</text>
+                </view>
+            </van-grid-item>
+        </van-grid>
+    </scroll-view>
+</view>

@@ -1,0 +1,7 @@
+<van-tabbar safe-area-inset-bottom="{{true}}" placeholder="{{true}}" active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item wx:for="{{ list }}" wx:key="index" icon="{{ item.icon }}">
+    {{
+    item.text
+    }}
+  </van-tabbar-item>
+</van-tabbar>

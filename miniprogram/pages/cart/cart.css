@@ -1,0 +1,51 @@
+/* pages/cart/cart.wxss */
+.item-bg {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #fafafa;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+.item-bg van-card {
+  width: 100%;
+}
+.van-swipe-cell__right {
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  color: #fff;
+  font-weight: bold;
+}
+.van-submit-bar {
+  padding-bottom: 168rpx;
+}
+.item {
+  border-bottom: 1rpx solid #e5e5e5;
+  height: 208rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.item > view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1;
+}
+.item > view .item-top {
+  font-weight: bold;
+  display: flex;
+}
+.item > view .item-top > text:nth-child(1) {
+  margin-right: 10rpx;
+}
+.item > view > view:nth-child(2) {
+  color: #9a9a9a;
+}

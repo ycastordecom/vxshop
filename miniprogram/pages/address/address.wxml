@@ -1,0 +1,21 @@
+<van-swipe-cell right-width="{{ 65 }}" wx:for="{{addressList}}" wx:key="index">
+    <van-cell-group>
+        <view class="item">
+            <view>
+                <view class="item-top">
+                    <text>{{item.receiverName}}</text>
+                    <text>{{item.phone}}</text>
+                </view>
+                <view>
+                    <van-tag type="danger" wx:if="{{item.isDefault}}">默认</van-tag>
+                    <text>{{item.address}}</text>
+                </view>
+            </view>
+            <van-icon name="edit" size="20" color="#999" bindtap="editaddress" data-item="{{item}}" />
+        </view>
+    </van-cell-group>
+    <view slot="right" bindtap="deladdress" data-addressId="{{item.addressId}}">删除</view>
+</van-swipe-cell>
+
+
+<van-submit-bar button-text="添加地址" bind:submit="onSubmit" />

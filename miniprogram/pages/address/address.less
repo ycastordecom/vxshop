@@ -1,0 +1,45 @@
+/* pages/address/address.wxss */
+.item {
+    border-bottom: 1rpx solid #e5e5e5;
+    height: 208rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 40rpx;
+    display: flex;
+    align-items: center;
+
+    >view:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        flex: 1;
+
+        .item-top {
+            font-weight: bold;
+            display: flex;
+
+            >text:nth-child(1) {
+                margin-right: 10rpx;
+            }
+        }
+
+        >view:nth-child(2) {
+            color: #9a9a9a;
+        }
+    }
+
+    van-icon {
+        width: 80rpx;
+    }
+}
+
+.van-swipe-cell__right {
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    color: #fff;
+    font-weight: bold;
+}

@@ -1,0 +1,22 @@
+<view>
+  <image src="{{baseImage+'/image/login.png'}}" mode="" />
+</view>
+<view>
+  <van-cell-group border="{{false}}">
+    <view class="label">
+      手机号
+    </view>
+    <van-field model:value="{{ phone }}" placeholder="请输入手机号" border="{{false}}" bind:change="onChange" />
+    <view class="label">
+      密码
+    </view>
+    <van-field model:value="{{ password }}" placeholder="请输入密码" password border="{{false}}" bind:change="onChange" />
+    <view class="forgot-password">
+      <view bindtap="toRegister">点击注册</view>
+      <!-- <view>忘记密码？点我</view> -->
+    </view>
+    <button bindtap="login" type="default" class="default">登录</button>
+
+    <button bindtap="wxLogin" type="primary">没有账号？使用微信登录</button>
+  </van-cell-group>
+</view>

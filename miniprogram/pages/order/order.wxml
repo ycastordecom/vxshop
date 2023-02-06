@@ -1,0 +1,14 @@
+<van-tabs active="{{active}}" use-before-change="{{true}}" bind:before-change="change">
+    <van-tab title="待发货" name="{{0}}"></van-tab>
+    <van-tab title="已发货" name="{{2}}"></van-tab>
+    <van-tab title="已完成" name="{{1}}"></van-tab>
+</van-tabs>
+<van-card wx:for="{{orderList}}" wx:key="index" currency="积分" price="{{item.totalAmount}}" desc="{{item.address}}"
+    title="订单号:{{item.orderNo}}" thumb="{{ baseImage+item.orderDetailList[0].image }}">
+    <view slot="bottom" wx:if="{{active!==0}}">
+        运单号: {{item.waybillNo}}
+    </view>
+    <view slot="footer" wx:if="{{active===2}}">
+        <van-button type="danger" size="mini" data-orderId="{{item.orderId}}" bindtap="receiveGoods">点击收货</van-button>
+    </view>
+</van-card>

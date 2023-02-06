@@ -1,0 +1,12 @@
+<van-search shape="round" model:value="{{ value }}" focus="{{true}}" placeholder="请输入搜索关键词" bind:search="search" />
+
+
+<van-grid column-num="2" border="{{ false }}">
+    <van-grid-item bindtap="toShopDetail" data-item="{{item}}" use-slot wx:for="{{ shopList }}" wx:key="index">
+        <image src="{{baseImage+ item.image}}" mode="widthFix" lazy-load="true" />
+        <view class="introduction">{{item.goodsName}}</view>
+        <view class="price">
+            {{item.price}}<text>积分</text>
+        </view>
+    </van-grid-item>
+</van-grid>

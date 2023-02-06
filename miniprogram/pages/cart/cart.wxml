@@ -1,0 +1,44 @@
+<van-swipe-cell right-width="{{ 65 }}" wx:for="{{cartList}}" wx:key="index">
+    <van-cell-group>
+        <van-cell>
+            <view class="item-bg">
+                <van-checkbox model:value="{{ item.isChoose }}" data-cartid="{{item.cartId}}"
+                    bind:change="changeCartChecked"></van-checkbox>
+                <van-card currency="积分" price="{{item.goods.price+item.spec.premium}}" title="{{item.goods.goodsName}}"
+                    thumb="{{baseImage + item.spec.image}}" thumb-mode="widthFix">
+
+                    <view slot="desc">
+                        <van-tag type="danger" wx:key="index" wx:for="{{tags[index]}}" round>{{item}}</van-tag>
+                    </view>
+                    <view slot="footer">
+                        <van-stepper data-cartid="{{item.cartId}}" model:value="{{ item.num }}" min="1"
+                            max="{{item.spec.stock}}" bind:change="changeCartNum" />
+                    </view>
+                </van-card>
+            </view>
+        </van-cell>
+    </van-cell-group>
+    <view slot="right" bindtap="delCart" data-cartid="{{item.cartId}}">删除</view>
+</van-swipe-cell>
+<van-submit-bar currency="积分" price="{{ price*100 }}" button-text="提交订单" safe-area-inset-bottom="{{false}}"
+    bind:submit="onClickButton">
+    <van-checkbox model:value="{{ allChecked}}" data-cartid="{{item.cartId}}" bind:change="allChecked">全选</van-checkbox>
+</van-submit-bar>
+<!-- 地址弹窗 -->
+<van-dialog use-slot id="van-dialog" show="{{addressShow}}" bind:close="onConfirm" title="选择地址">
+    <van-radio-group model:value="{{active}}">
+        <view class="item" wx:for="{{addressList}}" wx:key="index">
+            <van-radio name="{{item.addressId}}"></van-radio>
+            <view>
+                <view class="item-top">
+                    <text>{{item.receiverName}}</text>
+                    <text>{{item.phone}}</text>
+                </view>
+                <view>
+                    <van-tag type="danger" wx:if="{{item.isDefault}}">默认</van-tag>
+                    <text>{{item.address}}</text>
+                </view>
+            </view>
+        </view>
+    </van-radio-group>
+</van-dialog>

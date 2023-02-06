@@ -1,0 +1,170 @@
+/* pages/detail/detail.wxss */
+swiper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+
+    swiper-item {
+        width: 100% !important;
+        height: auto;
+        aspect-ratio: 1/1;
+
+        image {
+            width: 100%;
+        }
+    }
+}
+
+.introduction {
+    height: 300rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    margin: 20rpx 0;
+
+    .price {
+        .price-now {
+            font-size: 40rpx;
+            color: #f10;
+            font-weight: bold;
+            padding: 20rpx;
+
+            text {
+                font-size: 30rpx;
+                color: #f10;
+            }
+        }
+    }
+
+    .title {
+        font-size: 40rpx;
+        color: #333;
+        line-height: 50rpx;
+    }
+
+    .introduce {
+        font-size: 30rpx;
+        color: #aaa;
+        line-height: 40rpx;
+    }
+}
+
+.details {
+    padding: 0;
+    margin: 0;
+
+    image {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.otherbg {
+    height: auto;
+    padding: 20rpx;
+    box-sizing: border-box;
+    margin: 20rpx 0;
+
+    .other {
+        color: #aaa;
+        font-size: 30rpx;
+        color: #aaa;
+        line-height: 40rpx;
+        box-sizing: border-box;
+        padding: 20rpx 0;
+    }
+}
+
+//弹窗
+
+.van-popup {
+    box-sizing: border-box;
+    padding: 40rpx;
+    width: 750rpx;
+
+    .window-left {
+        height: 204rpx;
+        display: flex;
+
+        image {
+            height: 100%;
+        }
+    }
+
+    .window-right {
+        width: calc(100% - 204rpx);
+        padding: 10rpx;
+        box-sizing: border-box;
+
+        view {
+            word-break: break-all;
+        }
+
+        .price-now {
+            font-size: 40rpx;
+            color: #f10;
+            font-weight: bold;
+            padding: 20rpx;
+
+            text {
+                font-size: 30rpx;
+                color: #f10;
+            }
+        }
+    }
+}
+
+.window-spec-item {
+    margin: 20rpx 0;
+
+    .window-spec-item-name {
+        margin-bottom: 10rpx;
+    }
+}
+
+.window-num {
+    margin: 40rpx 0;
+    padding-bottom: 84rpx;
+
+    .window-num-name {
+        margin-bottom: 10rpx;
+    }
+}
+
+.window-spec-item-value {
+    .van-button {
+        // background-color: #f1f1f3;
+    }
+}
+
+
+.item {
+    border-bottom: 1rpx solid #e5e5e5;
+    height: 208rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    padding: 40rpx;
+    display: flex;
+    align-items: center;
+
+    >view {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        flex: 1;
+
+        .item-top {
+            font-weight: bold;
+            display: flex;
+
+            >text:nth-child(1) {
+                margin-right: 10rpx;
+            }
+        }
+
+        >view:nth-child(2) {
+            color: #9a9a9a;
+        }
+    }
+}
